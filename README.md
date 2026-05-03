@@ -3,85 +3,88 @@
 [![Remote Sensing](https://img.shields.io/badge/Domain-Remote%20Sensing-059669)](#)
 [![Deep Learning](https://img.shields.io/badge/Topic-Deep%20Learning-2563eb)](#)
 [![PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c)](#)
-[![Language](https://img.shields.io/badge/Language-Chinese-111827)](#)
+[![Language](https://img.shields.io/badge/Language-English%20%7C%20Chinese-111827)](#)
 
-面向地信遥感方向的深度学习转码学习笔记与实战仓库。
+**Language:** English | [中文](README.zh-CN.md)
 
-这个项目用于系统整理从深度学习底层原理到计算机视觉、遥感语义分割、变化检测、遥感基础模型和论文复现的学习材料。目标不是只会调用模型，而是逐步理解训练机制、模型结构、实验设计和创新来源。
+A learning and practice repository for transitioning into **deep learning for geospatial AI and remote sensing**.
 
-## 学习路线
+This project organizes notes, notebooks, algorithm explanations, and hands-on projects from deep learning fundamentals to computer vision, remote sensing semantic segmentation, change detection, foundation models, and paper reproduction. The goal is not only to call existing models, but to understand training mechanics, model structures, experiment design, and where research innovation can come from.
+
+## Learning Roadmap
 
 ```text
-Karpathy 底层原理
--> PyTorch 训练框架
+Karpathy-style neural network fundamentals
+-> PyTorch training framework
 -> CNN / U-Net / DeepLabV3+
 -> Transformer / ViT / SegFormer
--> 遥感语义分割 / 变化检测 / 多时相建模
--> 遥感基础模型论文复现
--> 自己的创新实验
+-> Remote sensing segmentation / change detection / multi-temporal modeling
+-> Remote sensing foundation model reproduction
+-> Your own research experiments
 ```
 
-## 当前内容
+## Current Contents
 
-| 模块 | Markdown | Notebook | 说明 |
+| Module | Markdown | Notebook | Description |
 | --- | --- | --- | --- |
-| 深度学习基础 + CV / 遥感分割入门 | [文档](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Notebook](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) | 基于 Karpathy 路线，插入 CNN、U-Net、DeepLabV3+，面向遥感深度学习 |
+| Deep learning foundations + CV / remote sensing segmentation | [Docs](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Notebook](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) | A Karpathy-inspired foundation route with CNN, U-Net, and DeepLabV3+ inserted for remote sensing research |
 
-## 目录结构
+## Repository Structure
 
 ```text
 remote-sensing-dl-notes/
 ├─ README.md
+├─ README.zh-CN.md
 ├─ docs/
-│  ├─ foundations/      # 基础知识文档
-│  ├─ algorithms/       # 后续放算法介绍，如 U-Net、DeepLab、SegFormer、Swin 等
-│  ├─ papers/           # 后续放论文精读
-│  └─ practices/        # 后续放实战流程
+│  ├─ foundations/      # Foundation notes
+│  ├─ algorithms/       # Algorithm notes: U-Net, DeepLab, SegFormer, Swin, etc.
+│  ├─ papers/           # Paper reading notes
+│  └─ practices/        # Practical remote sensing workflows
 ├─ notebooks/
-│  ├─ foundations/      # 可运行基础 notebook
-│  ├─ algorithms/       # 算法 notebook
-│  └─ practices/        # 实战 notebook
-└─ projects/            # 后续放完整小项目
+│  ├─ foundations/      # Runnable foundation notebooks
+│  ├─ algorithms/       # Algorithm notebooks
+│  └─ practices/        # Practice notebooks
+└─ projects/            # End-to-end mini projects
 ```
 
-## 后续计划
+## Planned Topics
 
-| 阶段 | 内容 | 目标 |
+| Stage | Topic | Goal |
 | --- | --- | --- |
-| 1 | PyTorch 基础训练框架 | 会写训练、验证、保存模型、画 loss 曲线 |
-| 2 | CNN 图像分类 | 跑通 CIFAR10 / EuroSAT 分类 |
-| 3 | U-Net 遥感分割 | 跑通建筑物、水体或土地覆盖分割 |
-| 4 | DeepLabV3+ | 理解 ASPP、多尺度上下文和 output stride |
-| 5 | SegFormer / ViT | 从 CNN 过渡到 Transformer 视觉模型 |
-| 6 | 变化检测 | 学习 LEVIR-CD 等光学变化检测任务 |
-| 7 | 遥感基础模型 | 阅读和复现 MAE、DINO、遥感 VLM 等方向 |
-| 8 | 论文复现 | 形成可复现实验日志和改进思路 |
+| 1 | PyTorch training framework | Write training, validation, checkpointing, and loss-curve visualization code |
+| 2 | CNN image classification | Run CIFAR10 / EuroSAT classification experiments |
+| 3 | U-Net remote sensing segmentation | Run building, water, or land-cover segmentation |
+| 4 | DeepLabV3+ | Understand ASPP, multi-scale context, and output stride |
+| 5 | SegFormer / ViT | Move from CNNs to Transformer-based vision models |
+| 6 | Change detection | Study optical change detection tasks such as LEVIR-CD |
+| 7 | Remote sensing foundation models | Read and reproduce MAE, DINO, remote sensing VLMs, and related models |
+| 8 | Paper reproduction | Build reproducible experiment logs and research improvement ideas |
 
-## 适合谁
+## Who This Is For
 
-- 会 Python 数据分析，想转深度学习的地信/遥感学生
-- 想从 PyTorch、CV 进入遥感深度学习的人
-- 想复现遥感论文、做高水平论文选题的人
-- 想把计算机视觉方法迁移到遥感任务的人
+- Geospatial or remote sensing students who know Python data analysis and want to learn deep learning
+- Learners moving from PyTorch and computer vision into remote sensing deep learning
+- Researchers who want to reproduce remote sensing papers and develop high-quality research ideas
+- Anyone interested in transferring computer vision methods to remote sensing tasks
 
-## 使用方式
+## How to Use
 
-阅读 Markdown：
+Read the Markdown notes:
 
 ```text
 docs/foundations/karpathy-cv-remote-sensing-foundations.md
 ```
 
-运行 Notebook：
+Run the notebook:
 
 ```text
 notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb
 ```
 
-建议边读边运行代码，并把自己的实验结果、报错和理解补充到笔记里。
+Recommended workflow: read the notes, run the code cells, modify the examples, and record your own experiment results, errors, and insights.
 
 ## Notes
 
-- 文档主要使用中文，关键技术术语保留英文，方便检索论文和代码。
-- Notebook 中的代码以教学演示为主，后续会逐步扩展为完整训练项目。
-- 本仓库会持续加入遥感实战、算法详解和论文复现内容。
+- The main study notes are currently written in Chinese, while key technical terms are preserved in English for easier paper and code search.
+- Notebook code is currently educational and will gradually evolve into complete training projects.
+- This repository will continue to add remote sensing practices, algorithm explanations, and paper reproduction notes.

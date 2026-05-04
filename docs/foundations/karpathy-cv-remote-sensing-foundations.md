@@ -527,6 +527,7 @@ flowchart TD
     B2 --> C1
     C1 --> D[prediction]
 ```
+![Uploading image.png…]()
 
 ### 4.3 演示函数：用 `nn.Module` 写 MLP
 

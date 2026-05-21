@@ -5,7 +5,7 @@
 [![Framework](https://img.shields.io/badge/Framework-PyTorch-ee4c2c)](#)
 [![Language](https://img.shields.io/badge/Language-English%20%7C%20Chinese-111827)](#)
 
-**语言:** [English](README.md) | 中文
+**语言:** 中文 | [English](README.en.md)
 
 这是一个面向地信遥感方向的深度学习转码学习仓库，用来记录从 Python 地信数据分析转向 **遥感深度学习科研** 的完整路线。
 
@@ -65,6 +65,7 @@ Part 2 额外提供一个可运行的 EuroSAT RGB 本地实操：
 ```text
 remote_sensing_dl_notes/
 ├─ README.md
+├─ README.en.md
 ├─ README.zh-CN.md
 ├─ COURSE_OUTLINE.md
 ├─ docs/

@@ -1,70 +1,71 @@
-﻿# Remote Sensing Deep Learning Roadmap
+﻿# 遥感深度学习转码路线
 
 [![Domain](https://img.shields.io/badge/Domain-Remote%20Sensing-059669)](#)
 [![Topic](https://img.shields.io/badge/Topic-Deep%20Learning-2563eb)](#)
 [![Framework](https://img.shields.io/badge/Framework-PyTorch-ee4c2c)](#)
 [![Language](https://img.shields.io/badge/Language-English%20%7C%20Chinese-111827)](#)
 
-**Language:** English | [中文](README.zh-CN.md)
+**语言:** 中文 | [English](README.en.md)
 
-A structured learning repository for transitioning from Python geospatial data analysis to **remote sensing deep learning research**.
+这是一个面向地信遥感方向的深度学习转码学习仓库，用来记录从 Python 地信数据分析转向 **遥感深度学习科研** 的完整路线。
 
-This project is organized as a long-term study path: from neural network fundamentals and PyTorch training loops to CNNs, U-Net, DeepLabV3+, Transformer vision models, semantic segmentation, change detection, remote sensing foundation models, and paper reproduction.
+项目会长期整理：神经网络底层原理、PyTorch 训练闭环、CNN、U-Net、DeepLabV3+、Transformer 视觉模型、遥感语义分割、变化检测、遥感基础模型和论文复现。
 
-The goal is not just to call existing models. The goal is to understand training mechanics, model structures, experiment design, failure modes, and where research ideas can come from.
+目标不是只会调用模型，而是逐步理解训练机制、模型结构、实验设计、常见失败原因和创新来源。
 
-## Learning Path
+## 学习路线
 
 ```text
-Karpathy-style neural network fundamentals
--> PyTorch training framework
+Karpathy 底层原理
+-> PyTorch 训练框架
 -> CNN / U-Net / DeepLabV3+
 -> Transformer / ViT / SegFormer
--> Remote sensing semantic segmentation / change detection / multi-temporal modeling
--> Remote sensing foundation model paper reproduction
--> Your own research experiments
+-> 遥感语义分割 / 变化检测 / 多时相建模
+-> 遥感基础模型论文复现
+-> 自己的创新实验
 ```
 
-## Course Outline
+## 课程目录
 
-See the full roadmap here: [COURSE_OUTLINE.md](COURSE_OUTLINE.md)
+完整路线见：[COURSE_OUTLINE.md](COURSE_OUTLINE.md)
 
-| Part | Title | Markdown | Notebook | Status |
+| Part | 标题 | Markdown | Notebook | 状态 |
 | --- | --- | --- | --- | --- |
-| 0 | Deep Learning Foundations + CV / Remote Sensing Roadmap | [Docs](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Notebook](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) | Done |
-| 1 | PyTorch Training Fundamentals | [Docs](docs/foundations/01-pytorch-training-fundamentals.md) | [Notebook](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) | Done |
-| 2 | CNN Image Classification | [Docs](docs/algorithms/02-cnn-image-classification.md) | [Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) | Done |
-| 3 | Remote Sensing Data Pipeline | docs/practices/03-remote-sensing-data-pipeline.md | notebooks/practices/03-remote-sensing-data-pipeline.ipynb | Planned |
-| 4 | U-Net Semantic Segmentation | docs/algorithms/04-unet-semantic-segmentation.md | notebooks/algorithms/04-unet-semantic-segmentation.ipynb | Planned |
-| 5 | DeepLabV3+ Land Cover Segmentation | docs/algorithms/05-deeplabv3plus-land-cover.md | notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb | Planned |
-| 6 | Transformer Vision Models | docs/algorithms/06-transformer-vision-models.md | notebooks/algorithms/06-transformer-vision-models.ipynb | Planned |
-| 7 | Optical Change Detection | docs/practices/07-optical-change-detection.md | notebooks/practices/07-optical-change-detection.ipynb | Planned |
-| 8 | Remote Sensing Foundation Models | docs/papers/08-remote-sensing-foundation-models.md | notebooks/papers/08-remote-sensing-foundation-models.ipynb | Planned |
-| 9 | Paper Reproduction Workflow | docs/practices/09-paper-reproduction-workflow.md | notebooks/practices/09-paper-reproduction-workflow.ipynb | Planned |
+| 0 | 深度学习底层原理与遥感 CV 路线总览 | [文档](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Notebook](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) | 已完成 |
+| 1 | PyTorch Training Fundamentals | [文档](docs/foundations/01-pytorch-training-fundamentals.md) | [Notebook](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) | 已完成 |
+| 2 | CNN Image Classification | [文档](docs/algorithms/02-cnn-image-classification.md) | [Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) | 已完成 |
+| 3 | Remote Sensing Data Pipeline | docs/practices/03-remote-sensing-data-pipeline.md | notebooks/practices/03-remote-sensing-data-pipeline.ipynb | 计划中 |
+| 4 | U-Net Semantic Segmentation | docs/algorithms/04-unet-semantic-segmentation.md | notebooks/algorithms/04-unet-semantic-segmentation.ipynb | 计划中 |
+| 5 | DeepLabV3+ Land Cover Segmentation | docs/algorithms/05-deeplabv3plus-land-cover.md | notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb | 计划中 |
+| 6 | Transformer Vision Models | docs/algorithms/06-transformer-vision-models.md | notebooks/algorithms/06-transformer-vision-models.ipynb | 计划中 |
+| 7 | Optical Change Detection | docs/practices/07-optical-change-detection.md | notebooks/practices/07-optical-change-detection.ipynb | 计划中 |
+| 8 | Remote Sensing Foundation Models | docs/papers/08-remote-sensing-foundation-models.md | notebooks/papers/08-remote-sensing-foundation-models.ipynb | 计划中 |
+| 9 | Paper Reproduction Workflow | docs/practices/09-paper-reproduction-workflow.md | notebooks/practices/09-paper-reproduction-workflow.ipynb | 计划中 |
 
-## Current Contents
+## 当前内容
 
-| Module | Focus | Markdown | Notebook |
+| 模块 | 重点 | Markdown | Notebook |
 | --- | --- | --- | --- |
-| Part 0 | Big-picture roadmap from Karpathy fundamentals to CNN, U-Net, DeepLabV3+, and Transformer models | [Read](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Run](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) |
-| Part 1 | PyTorch training loop: Dataset, DataLoader, model, loss, optimizer, evaluation, checkpoint, experiment log | [Read](docs/foundations/01-pytorch-training-fundamentals.md) | [Run](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) |
-| Part 2 | CNN image classification: Conv2d, shapes, TinyCNN, and EuroSAT scene classification | [Read](docs/algorithms/02-cnn-image-classification.md) | [Theory Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [Local Practice](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) |
+| Part 0 | 从 Karpathy 底层原理到 CNN、U-Net、DeepLabV3+、Transformer 的全局路线 | [阅读](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [运行](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) |
+| Part 1 | PyTorch 训练闭环：Dataset、DataLoader、模型、loss、optimizer、验证、checkpoint、实验日志 | [阅读](docs/foundations/01-pytorch-training-fundamentals.md) | [运行](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) |
+| Part 2 | CNN 图像分类：Conv2d、shape、TinyCNN、EuroSAT 遥感场景分类 | [阅读](docs/algorithms/02-cnn-image-classification.md) | [理论 Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [本地实操](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) |
 
-## Part 2 Local Practice
+## Part 2 本地实操
 
-Part 2 also includes a runnable EuroSAT RGB local practice workflow:
+Part 2 额外提供一个可运行的 EuroSAT RGB 本地实操：
 
-- [Local practice notebook](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb)
-- [Training scripts and notes](scripts/part2_cnn/README.md)
-- Scope: TinyCNN baseline on EuroSAT RGB subset
-- Dataset files are not committed; place them under `data/eurosat/EuroSAT_RGB`
-- Training outputs and promo figures are generated under `outputs/`, ignored by git by default
+- [本地实操 Notebook](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb)
+- [训练脚本与说明](scripts/part2_cnn/README.md)
+- 定位：TinyCNN baseline on EuroSAT RGB subset
+- 数据不随仓库上传，请按脚本说明下载到 `data/eurosat/EuroSAT_RGB`
+- 训练输出和宣传图会生成在 `outputs/`，默认被 `.gitignore` 忽略
 
-## Repository Structure
+## 目录结构
 
 ```text
 remote_sensing_dl_notes/
 ├─ README.md
+├─ README.en.md
 ├─ README.zh-CN.md
 ├─ COURSE_OUTLINE.md
 ├─ docs/
@@ -80,32 +81,32 @@ remote_sensing_dl_notes/
 └─ projects/
 ```
 
-## Chapter Template
+## 每章固定结构
 
-Each chapter follows the same pattern:
+每一章尽量采用同一套结构，方便长期维护：
 
 ```text
-1. Problem and goals
-2. Core theory
-3. Minimal implementation
-4. Shape / flow diagrams / visualization
-5. Small experiments
-6. Common pitfalls
-7. Remote sensing transfer
-8. Exercises and extensions
+1. 这一章要解决什么问题
+2. 理论核心
+3. 最小代码实现
+4. Shape / 流程图 / 可视化
+5. 小实验
+6. 常见坑
+7. 遥感迁移
+8. 作业与扩展
 ```
 
-## Who This Is For
+## 适合谁
 
-- Remote sensing or GIS learners who already know some Python and want to move into deep learning
-- Students preparing for remote sensing paper reproduction or research projects
-- Learners who want to connect computer vision methods with geospatial applications
-- Anyone building a long-term study portfolio around PyTorch and remote sensing deep learning
+- 会 Python 数据分析，想转深度学习的地信/遥感学生
+- 想从 PyTorch、CV 进入遥感深度学习的人
+- 想复现遥感论文、做高水平论文选题的人
+- 想把计算机视觉方法迁移到遥感任务的人
 
-## Study Advice
+## 学习建议
 
-- Run the notebooks instead of only reading the Markdown.
-- For every model, first overfit a tiny dataset before using full data.
-- Record every experiment: data, model, loss, metric, command, seed, and conclusion.
-- When moving into remote sensing tasks, pay attention to CRS, tiling, class imbalance, spatial autocorrelation, and cross-region generalization.
+- 不要只收藏笔记，每章至少跑通一个 Notebook。
+- 每个模型先 overfit 一小批数据，再上完整数据集。
+- 每次实验都记录数据、模型、loss、metric、运行命令、随机种子和结论。
+- 进入遥感任务后，重点关注投影、切片、类别不平衡、空间自相关和跨区域泛化。
 

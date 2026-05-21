@@ -58,7 +58,106 @@ CNN 的核心假设：
 
 ---
 
-## 3. 图像 Tensor Shape
+## 3. 先从一张灰度图理解卷积
+
+先不看 PyTorch，想象一张灰度图就是一个二维表格：
+
+```text
+image: [H, W]
+```
+
+每个格子是一个像素值。卷积核是一个很小的窗口，例如 `3x3`：
+
+```text
+kernel:
+[-1, -1, -1]
+[-1,  8, -1]
+[-1, -1, -1]
+```
+
+卷积的动作是：
+
+```text
+取图像上的一个 3x3 小块
+把小块和 kernel 对应位置相乘
+把 9 个乘积加起来
+得到输出图上的一个像素
+窗口向右、向下滑动，重复这个过程
+```
+
+上面这个 kernel 的中心是正数，周围是负数。它会让“和周围差异很大”的位置响应更强，所以常用来理解边缘/纹理检测。
+
+在深度学习里，卷积核里的数字不是人手写死的，而是模型参数，会通过反向传播学出来。
+
+---
+
+## 4. Conv2d 到底学什么
+
+`nn.Conv2d` 可以理解为一组可学习的滤波器。每个滤波器负责从图像里找一种局部模式：
+
+```text
+浅层卷积：边缘、角点、颜色变化、简单纹理
+中层卷积：道路片段、屋顶纹理、水体边界、农田纹理
+深层卷积：住宅区、工业区、森林、河流等更语义化的模式
+```
+
+PyTorch 写法：
+
+```python
+nn.Conv2d(
+    in_channels=3,
+    out_channels=16,
+    kernel_size=3,
+    stride=1,
+    padding=1,
+)
+```
+
+逐个解释：
+
+| 参数 | 含义 | 直觉 |
+| --- | --- | --- |
+| `in_channels` | 输入通道数 | RGB 是 3，Sentinel-2 多光谱可以是 13 |
+| `out_channels` | 输出通道数 | 想学多少种局部特征 |
+| `kernel_size` | 卷积窗口大小 | `3` 表示看 `3x3` 邻域 |
+| `stride` | 窗口每次移动几格 | 越大，输出图越小 |
+| `padding` | 图像边缘补几圈 0 | 保留边缘信息，控制输出尺寸 |
+
+如果输入是 RGB，单个卷积核并不是 `3x3`，而是：
+
+```text
+[in_channels, kernel_size, kernel_size] = [3, 3, 3]
+```
+
+也就是说，它会同时看 R、G、B 三个通道的局部区域。  
+如果 `out_channels=16`，就有 16 个这样的卷积核，输出 16 张 feature maps。
+
+参数量：
+
+```text
+参数量 = out_channels * in_channels * kernel_size * kernel_size + out_channels
+```
+
+例如：
+
+```text
+Conv2d(3, 16, kernel_size=3)
+= 16 * 3 * 3 * 3 + 16
+= 448 个参数
+```
+
+对比一个把 `64x64x3` 图像直接拉平的 `Linear`：
+
+```text
+Linear(64 * 64 * 3, 16)
+= 196624 个参数
+```
+
+这就是 CNN 的优势之一：用很少参数捕捉局部模式，并且同一个卷积核能在整张图上复用。
+
+---
+
+## 5. 图像 Tensor Shape
 
 PyTorch 图像模型默认使用：
 
@@ -89,13 +188,7 @@ PyTorch 图像模型默认使用：
 
 ---
 
-## 4. Conv2d 的 Shape 公式
-
-`nn.Conv2d` 常见写法：
-
-```python
-nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, stride=1, padding=1)
-```
+## 6. Conv2d 的 Shape 公式
 
 输入：
 
@@ -128,9 +221,47 @@ W_out = floor((W + 2 * padding - kernel_size) / stride) + 1
 [B, 16, 64, 64] -> [B, 16, 32, 32]
 ```
 
+常见组合：
+
+| 写法 | 结果 |
+| --- | --- |
+| `kernel_size=3, stride=1, padding=1` | H/W 不变 |
+| `kernel_size=3, stride=1, padding=0` | H/W 各少 2 |
+| `kernel_size=3, stride=2, padding=1` | H/W 大约减半 |
+| `MaxPool2d(2)` | H/W 减半 |
+
 ---
 
-## 5. 最小 CNN 分类器
+## 7. Conv、ReLU、Pooling、BatchNorm 各自做什么
+
+一个 CNN block 常写成：
+
+```python
+nn.Conv2d(...)
+nn.BatchNorm2d(...)
+nn.ReLU(...)
+nn.MaxPool2d(...)
+```
+
+它们的分工：
+
+| 层 | 作用 |
+| --- | --- |
+| `Conv2d` | 学局部特征，把输入通道变成多张 feature maps |
+| `BatchNorm2d` | 稳定每个通道的数值分布，让训练更稳 |
+| `ReLU` | 加入非线性，否则多层卷积仍接近线性变换 |
+| `MaxPool2d` | 下采样，保留强响应，扩大后续层的感受野 |
+
+可以把一个 CNN 分类器理解成：
+
+```text
+前半段：Conv blocks，把图像变成越来越抽象的 feature maps
+后半段：pool + linear，把 feature maps 汇总成类别 logits
+```
+
+---
+
+## 8. 最小 CNN 分类器
 
 ```python
 import torch
@@ -183,7 +314,7 @@ class TinyCNNClassifier(nn.Module):
 
 ---
 
-## 6. 打印中间 Shape
+## 9. 打印中间 Shape
 
 训练 CNN 前，先用假数据检查 shape：
 
@@ -215,7 +346,7 @@ logits: [4, 10]
 
 ---
 
-## 7. EuroSAT 数据集
+## 10. EuroSAT 数据集
 
 EuroSAT 是一个遥感场景分类数据集，基于 Sentinel-2 影像，包含 10 个土地利用/土地覆盖类别和 27000 张标注图像。原始数据有 13 个光谱波段，也常用 RGB 版本做入门实验。
 
@@ -245,7 +376,7 @@ SeaLake
 
 ---
 
-## 8. 读取 EuroSAT RGB
+## 11. 读取 EuroSAT RGB
 
 如果你的 `torchvision` 版本支持 `EuroSAT`，可以直接使用：
 
@@ -283,7 +414,7 @@ dataset = datasets.EuroSAT(
 
 ---
 
-## 9. 训练闭环
+## 12. 训练闭环
 
 这一章的训练函数和 Part 1 基本一样，只是输入从 `[B, 2]` 变成 `[B, 3, H, W]`：
 
@@ -320,7 +451,7 @@ def train_one_epoch(model, dataloader, optimizer, device):
 
 ---
 
-## 10. 小实验：过拟合一小批图像
+## 13. 小实验：过拟合一小批图像
 
 在完整训练前，先取 32 或 64 张图像让模型 overfit：
 
@@ -344,7 +475,7 @@ learning rate
 
 ---
 
-## 11. 混淆矩阵
+## 14. 混淆矩阵
 
 整体 accuracy 不够解释模型错在哪里。遥感场景分类常见混淆包括：
 
@@ -375,7 +506,7 @@ def compute_confusion_matrix(model, dataloader, device, num_classes):
 
 ---
 
-## 12. 遥感迁移
+## 15. 遥感迁移
 
 | 普通图像分类 | 遥感场景分类 |
 | --- | --- |
@@ -394,7 +525,7 @@ EuroSAT 只是入门。真实遥感研究还会遇到：
 
 ---
 
-## 13. 常见坑
+## 16. 常见坑
 
 | 问题 | 可能原因 | 排查方法 |
 | --- | --- | --- |
@@ -407,24 +538,29 @@ EuroSAT 只是入门。真实遥感研究还会遇到：
 
 ---
 
-## 14. 作业
+## 17. 作业
 
 1. 打印每一层 CNN 的 shape，并解释为什么变化。
-2. 把 `out_channels` 从 `16, 32, 64` 改成 `8, 16, 32`，比较速度和精度。
-3. 去掉 `BatchNorm2d`，观察训练是否更慢或更不稳定。
-4. 对比 `Adam(lr=1e-3)` 和 `SGD(lr=1e-2, momentum=0.9)`。
-5. 训练 5 个 epoch，画 loss / accuracy 曲线。
-6. 画混淆矩阵，写出最容易混淆的 3 对类别。
-7. 思考：如果输入从 RGB 改成 Sentinel-2 13 波段，模型第一层要怎么改？
+2. 手算 `Conv2d(3, 16, kernel_size=3, padding=1)` 的参数量。
+3. 把 `padding=1` 改成 `padding=0`，观察 feature map 尺寸怎么变。
+4. 把 `out_channels` 从 `16, 32, 64` 改成 `8, 16, 32`，比较速度和精度。
+5. 去掉 `BatchNorm2d`，观察训练是否更慢或更不稳定。
+6. 对比 `Adam(lr=1e-3)` 和 `SGD(lr=1e-2, momentum=0.9)`。
+7. 训练 5 个 epoch，画 loss / accuracy 曲线。
+8. 画混淆矩阵，写出最容易混淆的 3 对类别。
+9. 思考：如果输入从 RGB 改成 Sentinel-2 13 波段，模型第一层要怎么改？
 
 ---
 
-## 15. 本章小结
+## 18. 本章小结
 
 这一章你真正要带走的是：
 
 ```text
-Conv2d 把图像从 [B, C, H, W] 变成多层 feature maps
+Conv2d 是一组会学习的滑动窗口滤波器
+in_channels 决定每个卷积核看几层输入
+out_channels 决定输出多少张 feature maps
+kernel_size / stride / padding 决定局部窗口和输出尺寸
 CNN 分类器 = feature extractor + global pooling + linear classifier
 EuroSAT 是把 CNN 训练闭环迁移到遥感图像上的第一站
 ```
@@ -439,4 +575,3 @@ tiling
 augmentation
 mask
 ```
-

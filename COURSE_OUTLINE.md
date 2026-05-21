@@ -23,7 +23,7 @@ Part 9  Paper Reproduction Workflow：论文复现、消融实验与创新点设
 | --- | --- | --- | --- | --- | --- |
 | 0 | 深度学习底层原理与遥感 CV 路线总览 | [MD](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Notebook](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) | 建立从 micrograd 到 U-Net、DeepLabV3+、Transformer 的全局地图 | 已完成 |
 | 1 | PyTorch Training Fundamentals | [MD](docs/foundations/01-pytorch-training-fundamentals.md) | [Notebook](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) | 跑通 Dataset、DataLoader、train/eval、loss、optimizer、checkpoint、实验记录 | 已完成 |
-| 2 | CNN Image Classification | docs/algorithms/02-cnn-image-classification.md | notebooks/algorithms/02-cnn-image-classification.ipynb | 从 Conv2d 到 EuroSAT 遥感场景分类 | 计划中 |
+| 2 | CNN Image Classification | [MD](docs/algorithms/02-cnn-image-classification.md) | [Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) | 从 Conv2d 到 EuroSAT 遥感场景分类 | 已完成 |
 | 3 | Remote Sensing Data Pipeline | docs/practices/03-remote-sensing-data-pipeline.md | notebooks/practices/03-remote-sensing-data-pipeline.ipynb | GeoTIFF、shapefile、CRS、切片、mask、增强 | 计划中 |
 | 4 | U-Net Semantic Segmentation | docs/algorithms/04-unet-semantic-segmentation.md | notebooks/algorithms/04-unet-semantic-segmentation.ipynb | 建筑物、水体、道路提取，掌握 IoU、Dice、可视化 | 计划中 |
 | 5 | DeepLabV3+ Land Cover Segmentation | docs/algorithms/05-deeplabv3plus-land-cover.md | notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb | 空洞卷积、ASPP、多尺度上下文 | 计划中 |
@@ -44,3 +44,4 @@ Part 9  Paper Reproduction Workflow：论文复现、消融实验与创新点设
 7. 遥感迁移
 8. 作业与扩展
 ```
+

@@ -33,7 +33,7 @@ Karpathy 底层原理
 | --- | --- | --- | --- | --- |
 | 0 | 深度学习底层原理与遥感 CV 路线总览 | [文档](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Notebook](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) | 已完成 |
 | 1 | PyTorch Training Fundamentals | [文档](docs/foundations/01-pytorch-training-fundamentals.md) | [Notebook](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) | 已完成 |
-| 2 | CNN Image Classification | docs/algorithms/02-cnn-image-classification.md | notebooks/algorithms/02-cnn-image-classification.ipynb | 计划中 |
+| 2 | CNN Image Classification | [文档](docs/algorithms/02-cnn-image-classification.md) | [Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) | 已完成 |
 | 3 | Remote Sensing Data Pipeline | docs/practices/03-remote-sensing-data-pipeline.md | notebooks/practices/03-remote-sensing-data-pipeline.ipynb | 计划中 |
 | 4 | U-Net Semantic Segmentation | docs/algorithms/04-unet-semantic-segmentation.md | notebooks/algorithms/04-unet-semantic-segmentation.ipynb | 计划中 |
 | 5 | DeepLabV3+ Land Cover Segmentation | docs/algorithms/05-deeplabv3plus-land-cover.md | notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb | 计划中 |
@@ -48,6 +48,7 @@ Karpathy 底层原理
 | --- | --- | --- | --- |
 | Part 0 | 从 Karpathy 底层原理到 CNN、U-Net、DeepLabV3+、Transformer 的全局路线 | [阅读](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [运行](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) |
 | Part 1 | PyTorch 训练闭环：Dataset、DataLoader、模型、loss、optimizer、验证、checkpoint、实验日志 | [阅读](docs/foundations/01-pytorch-training-fundamentals.md) | [运行](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) |
+| Part 2 | CNN 图像分类：Conv2d、shape、TinyCNN、EuroSAT 遥感场景分类 | [阅读](docs/algorithms/02-cnn-image-classification.md) | [运行](notebooks/algorithms/02-cnn-image-classification.ipynb) |
 
 ## 目录结构
 
@@ -97,3 +98,4 @@ remote_sensing_dl_notes/
 - 每个模型先 overfit 一小批数据，再上完整数据集。
 - 每次实验都记录数据、模型、loss、metric、运行命令、随机种子和结论。
 - 进入遥感任务后，重点关注投影、切片、类别不平衡、空间自相关和跨区域泛化。
+

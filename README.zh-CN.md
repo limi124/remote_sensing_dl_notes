@@ -48,7 +48,17 @@ Karpathy 底层原理
 | --- | --- | --- | --- |
 | Part 0 | 从 Karpathy 底层原理到 CNN、U-Net、DeepLabV3+、Transformer 的全局路线 | [阅读](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [运行](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) |
 | Part 1 | PyTorch 训练闭环：Dataset、DataLoader、模型、loss、optimizer、验证、checkpoint、实验日志 | [阅读](docs/foundations/01-pytorch-training-fundamentals.md) | [运行](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) |
-| Part 2 | CNN 图像分类：Conv2d、shape、TinyCNN、EuroSAT 遥感场景分类 | [阅读](docs/algorithms/02-cnn-image-classification.md) | [运行](notebooks/algorithms/02-cnn-image-classification.ipynb) |
+| Part 2 | CNN 图像分类：Conv2d、shape、TinyCNN、EuroSAT 遥感场景分类 | [阅读](docs/algorithms/02-cnn-image-classification.md) | [理论 Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [本地实操](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) |
+
+## Part 2 本地实操
+
+Part 2 额外提供一个可运行的 EuroSAT RGB 本地实操：
+
+- [本地实操 Notebook](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb)
+- [训练脚本与说明](scripts/part2_cnn/README.md)
+- 定位：TinyCNN baseline on EuroSAT RGB subset
+- 数据不随仓库上传，请按脚本说明下载到 `data/eurosat/EuroSAT_RGB`
+- 训练输出和宣传图会生成在 `outputs/`，默认被 `.gitignore` 忽略
 
 ## 目录结构
 

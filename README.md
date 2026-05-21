@@ -48,7 +48,17 @@ See the full roadmap here: [COURSE_OUTLINE.md](COURSE_OUTLINE.md)
 | --- | --- | --- | --- |
 | Part 0 | Big-picture roadmap from Karpathy fundamentals to CNN, U-Net, DeepLabV3+, and Transformer models | [Read](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Run](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) |
 | Part 1 | PyTorch training loop: Dataset, DataLoader, model, loss, optimizer, evaluation, checkpoint, experiment log | [Read](docs/foundations/01-pytorch-training-fundamentals.md) | [Run](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) |
-| Part 2 | CNN image classification: Conv2d, shapes, TinyCNN, and EuroSAT scene classification | [Read](docs/algorithms/02-cnn-image-classification.md) | [Run](notebooks/algorithms/02-cnn-image-classification.ipynb) |
+| Part 2 | CNN image classification: Conv2d, shapes, TinyCNN, and EuroSAT scene classification | [Read](docs/algorithms/02-cnn-image-classification.md) | [Theory Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [Local Practice](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) |
+
+## Part 2 Local Practice
+
+Part 2 also includes a runnable EuroSAT RGB local practice workflow:
+
+- [Local practice notebook](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb)
+- [Training scripts and notes](scripts/part2_cnn/README.md)
+- Scope: TinyCNN baseline on EuroSAT RGB subset
+- Dataset files are not committed; place them under `data/eurosat/EuroSAT_RGB`
+- Training outputs and promo figures are generated under `outputs/`, ignored by git by default
 
 ## Repository Structure
 

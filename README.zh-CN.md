@@ -34,7 +34,7 @@ Karpathy 底层原理
 | 0 | 深度学习底层原理与遥感 CV 路线总览 | [文档](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Notebook](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) | 已完成 |
 | 1 | PyTorch Training Fundamentals | [文档](docs/foundations/01-pytorch-training-fundamentals.md) | [Notebook](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) | 已完成 |
 | 2 | CNN Image Classification | [理论文档](docs/algorithms/02-cnn-image-classification.md) / [实操文档](docs/algorithms/02-cnn-eurosat-local-practice.md) | [理论 Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [本地实操](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) | 已完成 |
-| 3 | Remote Sensing Data Pipeline | docs/practices/03-remote-sensing-data-pipeline.md | notebooks/practices/03-remote-sensing-data-pipeline.ipynb | 计划中 |
+| 3 | Remote Sensing Data Pipeline | [文档](docs/practices/03-remote-sensing-data-pipeline.md) | [Notebook](notebooks/practices/03-remote-sensing-data-pipeline.ipynb) | 已完成 |
 | 4 | U-Net Semantic Segmentation | docs/algorithms/04-unet-semantic-segmentation.md | notebooks/algorithms/04-unet-semantic-segmentation.ipynb | 计划中 |
 | 5 | DeepLabV3+ Land Cover Segmentation | docs/algorithms/05-deeplabv3plus-land-cover.md | notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb | 计划中 |
 | 6 | Transformer Vision Models | docs/algorithms/06-transformer-vision-models.md | notebooks/algorithms/06-transformer-vision-models.ipynb | 计划中 |
@@ -49,6 +49,15 @@ Karpathy 底层原理
 | Part 0 | 从 Karpathy 底层原理到 CNN、U-Net、DeepLabV3+、Transformer 的全局路线 | [阅读](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [运行](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) |
 | Part 1 | PyTorch 训练闭环：Dataset、DataLoader、模型、loss、optimizer、验证、checkpoint、实验日志 | [阅读](docs/foundations/01-pytorch-training-fundamentals.md) | [运行](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) |
 | Part 2 | CNN 图像分类：Conv2d、shape、TinyCNN、EuroSAT 遥感场景分类 | [理论](docs/algorithms/02-cnn-image-classification.md) / [实操](docs/algorithms/02-cnn-eurosat-local-practice.md) | [理论 Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [本地实操](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) |
+| Part 3 | 遥感数据管线：GeoTIFF、CRS、矢量栅格化、切片、同步增强、Dataset | [阅读](docs/practices/03-remote-sensing-data-pipeline.md) | [运行](notebooks/practices/03-remote-sensing-data-pipeline.ipynb) |
+
+## Part 3 可运行数据流水线
+
+Part 3 使用自包含的合成遥感场景，无需下载额外数据即可跑通：
+
+- [教学 Notebook](notebooks/practices/03-remote-sensing-data-pipeline.ipynb)
+- [脚本与运行说明](scripts/part3_data_pipeline/README.md)
+- 流程：4 波段 GeoTIFF + GeoJSON → mask → tiles → augmentation → Dataset
 
 ## Part 2 本地实操
 

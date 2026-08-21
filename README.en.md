@@ -34,7 +34,7 @@ See the full roadmap here: [COURSE_OUTLINE.md](COURSE_OUTLINE.md)
 | 0 | Deep Learning Foundations + CV / Remote Sensing Roadmap | [Docs](docs/foundations/karpathy-cv-remote-sensing-foundations.md) | [Notebook](notebooks/foundations/karpathy-cv-remote-sensing-foundations.ipynb) | Done |
 | 1 | PyTorch Training Fundamentals | [Docs](docs/foundations/01-pytorch-training-fundamentals.md) | [Notebook](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) | Done |
 | 2 | CNN Image Classification | [Theory Docs](docs/algorithms/02-cnn-image-classification.md) / [Practice Docs](docs/algorithms/02-cnn-eurosat-local-practice.md) | [Theory Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [Local Practice](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) | Done |
-| 3 | Remote Sensing Data Pipeline | docs/practices/03-remote-sensing-data-pipeline.md | notebooks/practices/03-remote-sensing-data-pipeline.ipynb | Planned |
+| 3 | Remote Sensing Data Pipeline | [Docs](docs/practices/03-remote-sensing-data-pipeline.md) | [Notebook](notebooks/practices/03-remote-sensing-data-pipeline.ipynb) | Completed |
 | 4 | U-Net Semantic Segmentation | docs/algorithms/04-unet-semantic-segmentation.md | notebooks/algorithms/04-unet-semantic-segmentation.ipynb | Planned |
 | 5 | DeepLabV3+ Land Cover Segmentation | docs/algorithms/05-deeplabv3plus-land-cover.md | notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb | Planned |
 | 6 | Transformer Vision Models | docs/algorithms/06-transformer-vision-models.md | notebooks/algorithms/06-transformer-vision-models.ipynb | Planned |

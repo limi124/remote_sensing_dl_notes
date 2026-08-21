@@ -25,12 +25,12 @@ Part 9  Paper Reproduction Workflow：论文复现、消融实验与创新点设
 | 1 | PyTorch Training Fundamentals | [MD](docs/foundations/01-pytorch-training-fundamentals.md) | [Notebook](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) | 跑通 Dataset、DataLoader、train/eval、loss、optimizer、checkpoint、实验记录 | 已完成 |
 | 2 | CNN Image Classification | [MD](docs/algorithms/02-cnn-image-classification.md) / [Practice MD](docs/algorithms/02-cnn-eurosat-local-practice.md) | [Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [Practice](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) | 从 Conv2d 到 EuroSAT 遥感场景分类，含 TinyCNN 本地实操 | 已完成 |
 | 3 | Remote Sensing Data Pipeline | [MD](docs/practices/03-remote-sensing-data-pipeline.md) | [Notebook](notebooks/practices/03-remote-sensing-data-pipeline.ipynb) | GeoTIFF、CRS、矢量栅格化、切片、mask、同步增强与 Dataset | 已完成 |
-| 4 | U-Net Semantic Segmentation | docs/algorithms/04-unet-semantic-segmentation.md | notebooks/algorithms/04-unet-semantic-segmentation.ipynb | 建筑物、水体、道路提取，掌握 IoU、Dice、可视化 | 计划中 |
-| 5 | DeepLabV3+ Land Cover Segmentation | docs/algorithms/05-deeplabv3plus-land-cover.md | notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb | 空洞卷积、ASPP、多尺度上下文 | 计划中 |
-| 6 | Transformer Vision Models | docs/algorithms/06-transformer-vision-models.md | notebooks/algorithms/06-transformer-vision-models.ipynb | ViT、Swin、SegFormer、遥感大图中的 attention | 计划中 |
-| 7 | Optical Change Detection | docs/practices/07-optical-change-detection.md | notebooks/practices/07-optical-change-detection.ipynb | 双时相输入、Siamese、差异特征、LEVIR-CD | 计划中 |
-| 8 | Remote Sensing Foundation Models | docs/papers/08-remote-sensing-foundation-models.md | notebooks/papers/08-remote-sensing-foundation-models.ipynb | MAE、DINO、CLIP、遥感 VLM、多光谱适配 | 计划中 |
-| 9 | Paper Reproduction Workflow | docs/practices/09-paper-reproduction-workflow.md | notebooks/practices/09-paper-reproduction-workflow.ipynb | 论文复现、实验日志、消融实验、创新点设计 | 计划中 |
+| 4 | U-Net Semantic Segmentation | [MD](docs/algorithms/04-unet-semantic-segmentation.md) | [Notebook](notebooks/algorithms/04-unet-semantic-segmentation.ipynb) | Encoder-decoder、skip、IoU、Dice | 已完成 |
+| 5 | DeepLabV3+ Land Cover Segmentation | [MD](docs/algorithms/05-deeplabv3plus-land-cover.md) | [Notebook](notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb) | 空洞卷积、ASPP、多尺度上下文 | 已完成 |
+| 6 | Transformer Vision Models | [MD](docs/algorithms/06-transformer-vision-models.md) | [Notebook](notebooks/algorithms/06-transformer-vision-models.ipynb) | ViT、Swin、SegFormer、attention | 已完成 |
+| 7 | Optical Change Detection | [MD](docs/practices/07-optical-change-detection.md) | [Notebook](notebooks/practices/07-optical-change-detection.ipynb) | 双时相、Siamese、差异融合、F1 | 已完成 |
+| 8 | Remote Sensing Foundation Models | [MD](docs/papers/08-remote-sensing-foundation-models.md) | [Notebook](notebooks/papers/08-remote-sensing-foundation-models.ipynb) | MAE、DINO、对比学习、VLM、迁移 | 已完成 |
+| 9 | Paper Reproduction Workflow | [MD](docs/practices/09-paper-reproduction-workflow.md) | [Notebook](notebooks/practices/09-paper-reproduction-workflow.ipynb) | 复现协议、消融、多种子、结论边界 | 已完成 |
 
 ## 每章固定结构
 

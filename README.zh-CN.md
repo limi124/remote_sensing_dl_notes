@@ -35,12 +35,12 @@ Karpathy 底层原理
 | 1 | PyTorch Training Fundamentals | [文档](docs/foundations/01-pytorch-training-fundamentals.md) | [Notebook](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) | 已完成 |
 | 2 | CNN Image Classification | [理论文档](docs/algorithms/02-cnn-image-classification.md) / [实操文档](docs/algorithms/02-cnn-eurosat-local-practice.md) | [理论 Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [本地实操](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) | 已完成 |
 | 3 | Remote Sensing Data Pipeline | [文档](docs/practices/03-remote-sensing-data-pipeline.md) | [Notebook](notebooks/practices/03-remote-sensing-data-pipeline.ipynb) | 已完成 |
-| 4 | U-Net Semantic Segmentation | docs/algorithms/04-unet-semantic-segmentation.md | notebooks/algorithms/04-unet-semantic-segmentation.ipynb | 计划中 |
-| 5 | DeepLabV3+ Land Cover Segmentation | docs/algorithms/05-deeplabv3plus-land-cover.md | notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb | 计划中 |
-| 6 | Transformer Vision Models | docs/algorithms/06-transformer-vision-models.md | notebooks/algorithms/06-transformer-vision-models.ipynb | 计划中 |
-| 7 | Optical Change Detection | docs/practices/07-optical-change-detection.md | notebooks/practices/07-optical-change-detection.ipynb | 计划中 |
-| 8 | Remote Sensing Foundation Models | docs/papers/08-remote-sensing-foundation-models.md | notebooks/papers/08-remote-sensing-foundation-models.ipynb | 计划中 |
-| 9 | Paper Reproduction Workflow | docs/practices/09-paper-reproduction-workflow.md | notebooks/practices/09-paper-reproduction-workflow.ipynb | 计划中 |
+| 4 | U-Net Semantic Segmentation | [文档](docs/algorithms/04-unet-semantic-segmentation.md) | [Notebook](notebooks/algorithms/04-unet-semantic-segmentation.ipynb) | 已完成 |
+| 5 | DeepLabV3+ Land Cover Segmentation | [文档](docs/algorithms/05-deeplabv3plus-land-cover.md) | [Notebook](notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb) | 已完成 |
+| 6 | Transformer Vision Models | [文档](docs/algorithms/06-transformer-vision-models.md) | [Notebook](notebooks/algorithms/06-transformer-vision-models.ipynb) | 已完成 |
+| 7 | Optical Change Detection | [文档](docs/practices/07-optical-change-detection.md) | [Notebook](notebooks/practices/07-optical-change-detection.ipynb) | 已完成 |
+| 8 | Remote Sensing Foundation Models | [文档](docs/papers/08-remote-sensing-foundation-models.md) | [Notebook](notebooks/papers/08-remote-sensing-foundation-models.ipynb) | 已完成 |
+| 9 | Paper Reproduction Workflow | [文档](docs/practices/09-paper-reproduction-workflow.md) | [Notebook](notebooks/practices/09-paper-reproduction-workflow.ipynb) | 已完成 |
 
 ## 当前内容
 
@@ -50,6 +50,8 @@ Karpathy 底层原理
 | Part 1 | PyTorch 训练闭环：Dataset、DataLoader、模型、loss、optimizer、验证、checkpoint、实验日志 | [阅读](docs/foundations/01-pytorch-training-fundamentals.md) | [运行](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) |
 | Part 2 | CNN 图像分类：Conv2d、shape、TinyCNN、EuroSAT 遥感场景分类 | [理论](docs/algorithms/02-cnn-image-classification.md) / [实操](docs/algorithms/02-cnn-eurosat-local-practice.md) | [理论 Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [本地实操](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) |
 | Part 3 | 遥感数据管线：GeoTIFF、CRS、矢量栅格化、切片、同步增强、Dataset | [阅读](docs/practices/03-remote-sensing-data-pipeline.md) | [运行](notebooks/practices/03-remote-sensing-data-pipeline.ipynb) |
+| Part 4–6 | U-Net、DeepLabV3+、ViT/Swin/SegFormer 分割模型路线 | [算法文档](docs/algorithms/) | [算法 Notebook](notebooks/algorithms/) |
+| Part 7–9 | 变化检测、遥感基础模型与论文复现工作流 | [实践/论文文档](docs/) | [实践/论文 Notebook](notebooks/) |
 
 ## Part 3 可运行数据流水线
 

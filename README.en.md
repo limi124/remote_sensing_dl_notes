@@ -35,12 +35,12 @@ See the full roadmap here: [COURSE_OUTLINE.md](COURSE_OUTLINE.md)
 | 1 | PyTorch Training Fundamentals | [Docs](docs/foundations/01-pytorch-training-fundamentals.md) | [Notebook](notebooks/foundations/01-pytorch-training-fundamentals.ipynb) | Done |
 | 2 | CNN Image Classification | [Theory Docs](docs/algorithms/02-cnn-image-classification.md) / [Practice Docs](docs/algorithms/02-cnn-eurosat-local-practice.md) | [Theory Notebook](notebooks/algorithms/02-cnn-image-classification.ipynb) / [Local Practice](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb) | Done |
 | 3 | Remote Sensing Data Pipeline | [Docs](docs/practices/03-remote-sensing-data-pipeline.md) | [Notebook](notebooks/practices/03-remote-sensing-data-pipeline.ipynb) | Completed |
-| 4 | U-Net Semantic Segmentation | docs/algorithms/04-unet-semantic-segmentation.md | notebooks/algorithms/04-unet-semantic-segmentation.ipynb | Planned |
-| 5 | DeepLabV3+ Land Cover Segmentation | docs/algorithms/05-deeplabv3plus-land-cover.md | notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb | Planned |
-| 6 | Transformer Vision Models | docs/algorithms/06-transformer-vision-models.md | notebooks/algorithms/06-transformer-vision-models.ipynb | Planned |
-| 7 | Optical Change Detection | docs/practices/07-optical-change-detection.md | notebooks/practices/07-optical-change-detection.ipynb | Planned |
-| 8 | Remote Sensing Foundation Models | docs/papers/08-remote-sensing-foundation-models.md | notebooks/papers/08-remote-sensing-foundation-models.ipynb | Planned |
-| 9 | Paper Reproduction Workflow | docs/practices/09-paper-reproduction-workflow.md | notebooks/practices/09-paper-reproduction-workflow.ipynb | Planned |
+| 4 | U-Net Semantic Segmentation | [Docs](docs/algorithms/04-unet-semantic-segmentation.md) | [Notebook](notebooks/algorithms/04-unet-semantic-segmentation.ipynb) | Completed |
+| 5 | DeepLabV3+ Land Cover Segmentation | [Docs](docs/algorithms/05-deeplabv3plus-land-cover.md) | [Notebook](notebooks/algorithms/05-deeplabv3plus-land-cover.ipynb) | Completed |
+| 6 | Transformer Vision Models | [Docs](docs/algorithms/06-transformer-vision-models.md) | [Notebook](notebooks/algorithms/06-transformer-vision-models.ipynb) | Completed |
+| 7 | Optical Change Detection | [Docs](docs/practices/07-optical-change-detection.md) | [Notebook](notebooks/practices/07-optical-change-detection.ipynb) | Completed |
+| 8 | Remote Sensing Foundation Models | [Docs](docs/papers/08-remote-sensing-foundation-models.md) | [Notebook](notebooks/papers/08-remote-sensing-foundation-models.ipynb) | Completed |
+| 9 | Paper Reproduction Workflow | [Docs](docs/practices/09-paper-reproduction-workflow.md) | [Notebook](notebooks/practices/09-paper-reproduction-workflow.ipynb) | Completed |
 
 ## Current Contents
 

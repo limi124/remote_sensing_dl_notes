@@ -7,7 +7,15 @@
 
 **语言:** 中文 | [English](README.en.md)
 
-这是一个面向地信遥感方向的深度学习转码学习仓库，用来记录从 Python 地信数据分析转向 **遥感深度学习科研** 的完整路线。
+## 写在前面
+
+这份开源笔记大约花了我三个月持续整理、编写和实验。它记录的是我从地信/遥感数据分析走向深度学习研究的一条学习路线，也希望能为正在转向遥感 AI 的同学提供一份可以动手跟练的教材。
+
+受时间、经验和设备条件限制，仓库中一定还有不严谨、不完整或表达不够清楚的地方。非常欢迎大家通过 [Issue](../../issues)、[Discussion](../../discussions) 或 Pull Request 提出问题、补充案例、修正文档与共建新章节；希望它能在开源协作中慢慢变得更好。
+
+## 项目定位
+
+这是一个面向地信遥感方向的深度学习转码学习仓库，记录从 Python 地信数据分析转向 **遥感深度学习科研** 的完整路线。
 
 项目会长期整理：神经网络底层原理、PyTorch 训练闭环、CNN、U-Net、DeepLabV3+、Transformer 视觉模型、遥感语义分割、变化检测、遥感基础模型和论文复现。
 
@@ -53,7 +61,18 @@ Karpathy 底层原理
 | Part 4–6 | U-Net、DeepLabV3+、ViT/Swin/SegFormer 分割模型路线 | [算法文档](docs/algorithms/) | [算法 Notebook](notebooks/algorithms/) |
 | Part 7–9 | 变化检测、遥感基础模型与论文复现工作流 | [实践/论文文档](docs/) | [实践/论文 Notebook](notebooks/) |
 
-## Part 3：从遥感数据到深度学习样本
+## 推荐从这里开始
+
+### Part 2：EuroSAT 图像分类实操
+
+Part 2 在理论 Notebook 之外提供 EuroSAT RGB 的轻量实操，用于体验从数据集、训练循环到评估和保存模型的完整闭环：
+
+- [本地实操 Notebook](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb)
+- [训练脚本与说明](scripts/part2_cnn/README.md)
+- 使用 TinyCNN 作为清晰、易修改的 baseline
+- 数据与训练输出不随仓库上传；按说明下载后即可在本地复现
+
+### Part 3：从遥感数据到深度学习样本
 
 Part 3 用一个自包含的合成遥感场景，把常见的空间数据处理步骤串成可理解、可复现的工作流：
 
@@ -63,16 +82,7 @@ Part 3 用一个自包含的合成遥感场景，把常见的空间数据处理�
 
 这一章重点不是“记住 API”，而是理解影像、矢量标注、栅格 mask、切片和 PyTorch Dataset 之间如何衔接；掌握这条链路后，读者可以替换为自己的遥感数据。
 
-## Part 2：EuroSAT 图像分类实操
-
-Part 2 在理论 Notebook 之外提供 EuroSAT RGB 的轻量实操，用于体验从数据集、训练循环到评估和保存模型的完整闭环：
-
-- [本地实操 Notebook](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb)
-- [训练脚本与说明](scripts/part2_cnn/README.md)
-- 使用 TinyCNN 作为清晰、易修改的 baseline
-- 数据与训练输出不随仓库上传；按说明下载后即可在本地复现
-
-## Part 4–9：从模型理解到可信实验
+### Part 4–9：从模型理解到可信实验
 
 Part 4–9 不止介绍 U-Net、DeepLabV3+、SegFormer、变化检测和基础模型，也把它们放进真实训练实验中：LandCover.ai 语义分割、LEVIR-CD 变化检测、官方 TorchGeo Scale-MAE 线性探针，以及三随机种子复现。
 
@@ -82,12 +92,6 @@ Part 4–9 不止介绍 U-Net、DeepLabV3+、SegFormer、变化检测和基础�
 - [实验协议与本机实测结果](docs/REAL_TRAINING_RESULTS.md)
 
 为了让仓库保持轻量、便于学习和长期维护，原始数据、模型权重、训练日志与预测图不提交到 GitHub；读者可根据文档在本地独立复现。
-
-## 关于这个仓库
-
-这份开源笔记大约花了我三个月持续整理、编写和实验。它记录的是我从地信/遥感数据分析走向深度学习研究的一条学习路线，也希望能为正在转向遥感 AI 的同学提供一份可以动手跟练的教材。
-
-受时间、经验和设备条件限制，仓库中一定还有不严谨、不完整或表达不够清楚的地方。非常欢迎大家通过 Issue、Discussion 或 Pull Request 提出问题、补充案例、修正文档与共建新章节；希望它能在开源协作中慢慢变得更好。
 
 ## 目录结构
 

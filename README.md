@@ -1,4 +1,4 @@
-﻿# 遥感深度学习转码路线
+﻿# 遥感深度学习转码笔记
 
 [![Domain](https://img.shields.io/badge/Domain-Remote%20Sensing-059669)](#)
 [![Topic](https://img.shields.io/badge/Topic-Deep%20Learning-2563eb)](#)

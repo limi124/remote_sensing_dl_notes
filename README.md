@@ -53,29 +53,41 @@ Karpathy 底层原理
 | Part 4–6 | U-Net、DeepLabV3+、ViT/Swin/SegFormer 分割模型路线 | [算法文档](docs/algorithms/) | [算法 Notebook](notebooks/algorithms/) |
 | Part 7–9 | 变化检测、遥感基础模型与论文复现工作流 | [实践/论文文档](docs/) | [实践/论文 Notebook](notebooks/) |
 
-## Part 3 可运行数据流水线
+## Part 3：从遥感数据到深度学习样本
 
-Part 3 使用自包含的合成遥感场景，无需下载额外数据即可跑通：
+Part 3 用一个自包含的合成遥感场景，把常见的空间数据处理步骤串成可理解、可复现的工作流：
 
 - [教学 Notebook](notebooks/practices/03-remote-sensing-data-pipeline.ipynb)
 - [脚本与运行说明](scripts/part3_data_pipeline/README.md)
-- 流程：4 波段 GeoTIFF + GeoJSON → mask → tiles → augmentation → Dataset
+- 学习主线：4 波段 GeoTIFF + GeoJSON → mask → tiles → augmentation → Dataset
 
-## Part 2 本地实操
+这一章重点不是“记住 API”，而是理解影像、矢量标注、栅格 mask、切片和 PyTorch Dataset 之间如何衔接；掌握这条链路后，读者可以替换为自己的遥感数据。
 
-Part 2 额外提供一个可运行的 EuroSAT RGB 本地实操：
+## Part 2：EuroSAT 图像分类实操
+
+Part 2 在理论 Notebook 之外提供 EuroSAT RGB 的轻量实操，用于体验从数据集、训练循环到评估和保存模型的完整闭环：
 
 - [本地实操 Notebook](notebooks/algorithms/02-cnn-eurosat-local-practice.ipynb)
 - [训练脚本与说明](scripts/part2_cnn/README.md)
-- 定位：TinyCNN baseline on EuroSAT RGB subset
-- 数据不随仓库上传，请按脚本说明下载到 `data/eurosat/EuroSAT_RGB`
-- 训练输出和宣传图会生成在 `outputs/`，默认被 `.gitignore` 忽略
+- 使用 TinyCNN 作为清晰、易修改的 baseline
+- 数据与训练输出不随仓库上传；按说明下载后即可在本地复现
 
-## Part 4–9 真实训练基线
+## Part 4–9：从模型理解到可信实验
 
-Part 4–9 已升级为真实 PyTorch/CUDA 实验：LandCover.ai 语义分割、LEVIR-CD 变化检测、官方 TorchGeo Scale-MAE 线性探针，以及三随机种子复现。环境与命令见 [训练脚本说明](scripts/real_training/README.md)，本机实测指标和协议见 [真实训练结果](docs/REAL_TRAINING_RESULTS.md)。
+Part 4–9 不止介绍 U-Net、DeepLabV3+、SegFormer、变化检测和基础模型，也把它们放进真实训练实验中：LandCover.ai 语义分割、LEVIR-CD 变化检测、官方 TorchGeo Scale-MAE 线性探针，以及三随机种子复现。
 
-`data/`、`outputs/`、checkpoint、训练日志和预测图均只保留本地，并由 `.gitignore` 排除。
+训练脚本、环境定义和结果解读均公开在仓库中：
+
+- [真实训练与复现说明](scripts/real_training/README.md)
+- [实验协议与本机实测结果](docs/REAL_TRAINING_RESULTS.md)
+
+为了让仓库保持轻量、便于学习和长期维护，原始数据、模型权重、训练日志与预测图不提交到 GitHub；读者可根据文档在本地独立复现。
+
+## 关于这个仓库
+
+这份开源笔记大约花了我三个月持续整理、编写和实验。它记录的是我从地信/遥感数据分析走向深度学习研究的一条学习路线，也希望能为正在转向遥感 AI 的同学提供一份可以动手跟练的教材。
+
+受时间、经验和设备条件限制，仓库中一定还有不严谨、不完整或表达不够清楚的地方。非常欢迎大家通过 Issue、Discussion 或 Pull Request 提出问题、补充案例、修正文档与共建新章节；希望它能在开源协作中慢慢变得更好。
 
 ## 目录结构
 

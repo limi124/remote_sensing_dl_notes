@@ -8,6 +8,17 @@ import nbformat as nbf
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Long runs are deliberately script-first: notebooks stay restartable and only
+# invoke a one-epoch smoke run when RUN_SHORT_TRAIN is set to True.
+REAL_EXPERIMENTS = {
+    4: ("scripts/real_training/train_segmentation.py --model unet --data-root data/landcoverai --output outputs/part4_unet", "outputs/part4_unet"),
+    5: ("scripts/real_training/train_segmentation.py --model deeplabv3plus --data-root data/landcoverai --output outputs/part5_deeplabv3plus", "outputs/part5_deeplabv3plus"),
+    6: ("scripts/real_training/train_segmentation.py --model segformer_b0 --data-root data/landcoverai --output outputs/part6_segformer_b0", "outputs/part6_segformer_b0"),
+    7: ("scripts/real_training/train_change.py --data-root data/levir_cd --output outputs/part7_change_weighted", "outputs/part7_change_weighted"),
+    8: ("scripts/real_training/train_foundation.py --data-root data/eurosat/EuroSAT_RGB --output outputs/part8_scalemae", "outputs/part8_scalemae"),
+    9: ("powershell -ExecutionPolicy Bypass -File scripts/real_training/run_part9.ps1", "outputs/part9_reproduction"),
+}
+
 
 SPECS = [
     {
@@ -186,6 +197,7 @@ for row in claim_matrix: print(row)''',
 
 def make_doc(spec: dict) -> str:
     concepts = "\n".join(f"| {name} | {desc} |" for name, desc in spec["concepts"])
+    command, output_dir = REAL_EXPERIMENTS[spec["part"]]
     return textwrap.dedent(f"""\
     # Part {spec['part']}: {spec['title']}
 
@@ -214,9 +226,15 @@ def make_doc(spec: dict) -> str:
     | --- | --- |
     {concepts}
 
-    ## 4. 最小实验
+    ## 4. 真实训练实验
 
-    本章 Notebook 使用固定随机种子与 NumPy 合成数据，先验证数学、shape 和指标，再替换为真实数据与 PyTorch 模型。这样可以把环境问题与方法问题分开排查。
+    本章使用真实 PyTorch/CUDA 训练。长训练由脚本执行，避免 Notebook 重启导致结果丢失：
+
+    ```powershell
+    conda run --no-capture-output -n remote-sensing-dl python {command}
+    ```
+
+    本地结果写入 `{output_dir}`：`best.pt`、`last.pt`、`config.json`、`history.csv`、`metrics.json`、训练曲线和预测图。`data/` 与 `outputs/` 均由 Git 忽略，绝不提交权重或结果图。
 
     ## 5. 实验与评估建议
 
@@ -253,14 +271,18 @@ def make_notebook(spec: dict):
     nb.metadata.kernelspec = {"display_name": "Python 3", "language": "python", "name": "python3"}
     nb.metadata.language_info = {"name": "python", "version": "3.x"}
     concepts = "\n".join(f"- **{name}**：{desc}" for name, desc in spec["concepts"])
+    command, output_dir = REAL_EXPERIMENTS[spec["part"]]
+    short_command = command + " --epochs 1 --train-limit 32 --val-limit 16" if spec["part"] in (4, 5, 6) else command
     nb.cells = [
         nbf.v4.new_markdown_cell(f"# Part {spec['part']}: {spec['title']}\n\n{spec['problem']}\n\n**先修要求**：完成前序章节，了解 NumPy、张量 shape 与训练/验证划分。"),
         nbf.v4.new_markdown_cell(f"## 学习目标与路线\n\n1. 明确问题与输入输出\n2. 理解核心结构\n3. 运行最小实验\n4. 检查指标和 shape\n5. 完成练习与遥感迁移\n\n`{spec['pipeline']}`"),
-        nbf.v4.new_code_cell("import numpy as np\nprint('NumPy:', np.__version__)"),
+        nbf.v4.new_code_cell("from pathlib import Path\nimport json\nROOT = Path.cwd().resolve()\nwhile not (ROOT / 'scripts').exists() and ROOT.parent != ROOT: ROOT = ROOT.parent\nprint('repository:', ROOT)"),
         nbf.v4.new_markdown_cell(f"## 核心概念\n\n{concepts}"),
-        nbf.v4.new_markdown_cell("## 最小可运行实验\n\n先用小而确定的合成数据验证关键数学与指标。真实训练时再替换为 PyTorch 模型和 Part 3 的数据流水线。"),
-        nbf.v4.new_code_cell(spec["code"]),
-        nbf.v4.new_markdown_cell("## 结果解释\n\n检查断言、shape 和指标是否符合预期。若最小实验失败，先修复实现；不要立即增加模型规模或下载更大数据。"),
+        nbf.v4.new_markdown_cell("## 本地真实训练结果\n\n长训练由脚本执行；这里读取本机已经生成的指标和产物。GitHub 中不会包含 `outputs/`。"),
+        nbf.v4.new_code_cell(f"output = ROOT / r'{output_dir}'\nmetrics_path = output / 'metrics.json'\nprint('local output:', output)\nprint(json.dumps(json.loads(metrics_path.read_text(encoding='utf-8')), indent=2) if metrics_path.exists() else '尚未运行：请执行下方命令。')"),
+        nbf.v4.new_markdown_cell("## 可恢复的脚本训练\n\n默认不在 Notebook 内启动长训练。将 `RUN_SHORT_TRAIN` 改为 `True` 可执行一次小规模 smoke run；正式命令请在终端执行。"),
+        nbf.v4.new_code_cell(f"RUN_SHORT_TRAIN = False\ncommand = r'''conda run --no-capture-output -n remote-sensing-dl python {short_command}'''\nprint(command)\nif RUN_SHORT_TRAIN:\n    import subprocess\n    subprocess.run(command, cwd=ROOT, shell=True, check=True)"),
+        nbf.v4.new_markdown_cell("## 结果解释\n\n正式结果必须包含非空 checkpoint、完整 epoch 日志、验证指标与预测图；出现缺失时先检查数据配对、CUDA 与配置，而不要直接扩大模型。"),
         nbf.v4.new_markdown_cell(f"## 练习\n\n{spec['exercise']}"),
         nbf.v4.new_code_cell("# 答案脚手架\nexperiment = {'hypothesis': '', 'controlled_variables': [], 'metric': '', 'expected_failure': ''}\nprint(experiment)"),
         nbf.v4.new_markdown_cell(f"## 常见坑与扩展\n\n**常见坑**：{spec['pitfalls']}\n\n**扩展**：替换为真实遥感数据时，记录传感器、波段、分辨率、空间划分和随机种子。"),

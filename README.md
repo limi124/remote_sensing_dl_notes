@@ -71,6 +71,12 @@ Part 2 额外提供一个可运行的 EuroSAT RGB 本地实操：
 - 数据不随仓库上传，请按脚本说明下载到 `data/eurosat/EuroSAT_RGB`
 - 训练输出和宣传图会生成在 `outputs/`，默认被 `.gitignore` 忽略
 
+## Part 4–9 真实训练基线
+
+Part 4–9 已升级为真实 PyTorch/CUDA 实验：LandCover.ai 语义分割、LEVIR-CD 变化检测、官方 TorchGeo Scale-MAE 线性探针，以及三随机种子复现。环境与命令见 [训练脚本说明](scripts/real_training/README.md)，本机实测指标和协议见 [真实训练结果](docs/REAL_TRAINING_RESULTS.md)。
+
+`data/`、`outputs/`、checkpoint、训练日志和预测图均只保留本地，并由 `.gitignore` 排除。
+
 ## 目录结构
 
 ```text

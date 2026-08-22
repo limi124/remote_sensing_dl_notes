@@ -28,9 +28,15 @@
 | Contrastive/VLM | 拉近匹配影像–文本或同一地点多视图，拉远不匹配样本。 |
 | Transfer protocol | 先 linear probe，再全量/参数高效微调，并与从头训练公平比较。 |
 
-    ## 4. 最小实验
+    ## 4. 真实训练实验
 
-    本章 Notebook 使用固定随机种子与 NumPy 合成数据，先验证数学、shape 和指标，再替换为真实数据与 PyTorch 模型。这样可以把环境问题与方法问题分开排查。
+    本章使用真实 PyTorch/CUDA 训练。长训练由脚本执行，避免 Notebook 重启导致结果丢失：
+
+    ```powershell
+    conda run --no-capture-output -n remote-sensing-dl python scripts/real_training/train_foundation.py --data-root data/eurosat/EuroSAT_RGB --output outputs/part8_scalemae
+    ```
+
+    本地结果写入 `outputs/part8_scalemae`：`best.pt`、`last.pt`、`config.json`、`history.csv`、`metrics.json`、训练曲线和预测图。`data/` 与 `outputs/` 均由 Git 忽略，绝不提交权重或结果图。
 
     ## 5. 实验与评估建议
 
